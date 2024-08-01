@@ -1,19 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace GenshinImpactMovementSystem
 {
-    public class PlayerIdlingState : PlayerMovementState
+    public class PlayerIdlingState : PlayerGroundedState
     {
         public PlayerIdlingState(PlayerMovementStateMachine playerMovementStateMachine) : base(playerMovementStateMachine)
         {
 
         }
 
+        #region IState Method
         public override void Enter()
         {
-            Debug.Log("I Overwrote the PlayerMovementState Enter() Function. State: " + GetType().Name);
+            base.Enter();
+            stateMachine.reusableData.movementSpeedModifier = 0f;
+
+            ResetVelocity();
         }
+
+        public override void Update()
+        {
+            base.Update();
+
+            if (stateMachine.reusableData.movementInput == Vector2.zero)
+            {
+                return;
+            }
+
+            OnMove();
+        }
+        #endregion
     }
 }

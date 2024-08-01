@@ -7,7 +7,12 @@ namespace GenshinImpactMovementSystem
     [RequireComponent(typeof(PlayerInput))]
     public class Player : MonoBehaviour
     {
+        [field: Header("References")]
+        [field: SerializeField] public PlayerSO data { get; private set; }
         public Rigidbody rb { get; private set; }
+
+        public Transform mainCameraTransform { get; private set; }
+
         public PlayerInput input { get; private set; }
         private PlayerMovementStateMachine movementStateMachine;
 
@@ -16,6 +21,7 @@ namespace GenshinImpactMovementSystem
             rb = GetComponent<Rigidbody>();
             input = GetComponent<PlayerInput>();
             movementStateMachine = new PlayerMovementStateMachine(this);
+            mainCameraTransform = Camera.main.transform;
         }
 
         private void Start()
