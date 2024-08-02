@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace GenshinImpactMovementSystem
 {
+    // Cached Data
     public class PlayerMovementStateMachine : StateMachine
     {
         public Player player { get; }

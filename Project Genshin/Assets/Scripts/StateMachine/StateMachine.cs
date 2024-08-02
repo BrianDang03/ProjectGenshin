@@ -2,6 +2,7 @@ namespace GenshinImpactMovementSystem
 {
     public abstract class StateMachine
     {
+        //Uses sets the States and call State Methods
         protected IState currentState;
 
         public void ChangeState(IState newState)

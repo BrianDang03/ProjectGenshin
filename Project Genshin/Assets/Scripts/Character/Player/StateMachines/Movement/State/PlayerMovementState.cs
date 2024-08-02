@@ -138,6 +138,11 @@ namespace GenshinImpactMovementSystem
             return playerHorizontalVelocity;
         }
 
+        protected Vector3 GetPlayerVerticalVelocity()
+        {
+            return new Vector3(0f, stateMachine.player.rb.velocity.y, 0f);
+        }
+
         protected void RotateTowardsTargetRotation()
         {
             float currentYAngle = stateMachine.player.rb.rotation.eulerAngles.y;

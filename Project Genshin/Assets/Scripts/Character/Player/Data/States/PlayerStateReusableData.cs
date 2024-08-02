@@ -6,6 +6,7 @@ namespace GenshinImpactMovementSystem
 {
     public class PlayerStateReusableData
     {
+        //Stores data for code base uses
         public Vector2 movementInput { get; set; }
         public float movementSpeedModifier { get; set; } = 1f;
         public bool shouldWalk { get; set; }

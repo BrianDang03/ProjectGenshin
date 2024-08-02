@@ -10986,6 +10986,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <data>k__BackingField: {fileID: 11400000, guid: 95051345171949347bf17dd82ff31d92, type: 2}
+  <colliderUtility>k__BackingField:
+    <defaultColliderData>k__BackingField:
+      <height>k__BackingField: 1.8
+      <centerY>k__BackingField: 0.9
+      <radius>k__BackingField: 0.2
+    <slopeData>k__BackingField:
+      <stepHeightPercentage>k__BackingField: 0.25
+      <floatRayDistance>k__BackingField: 2
+      <stepReachForce>k__BackingField: 25
+  <layerData>k__BackingField:
+    <groundLayer>k__BackingField:
+      serializedVersion: 2
+      m_Bits: 64
 --- !u!136 &2132405352
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -11006,9 +11019,9 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.2
-  m_Height: 1.8
+  m_Height: 1.3499999
   m_Direction: 1
-  m_Center: {x: 0, y: 0.9, z: 0}
+  m_Center: {x: 0, y: 1.125, z: 0}
 --- !u!54 &2132405353
 Rigidbody:
   m_ObjectHideFlags: 0
