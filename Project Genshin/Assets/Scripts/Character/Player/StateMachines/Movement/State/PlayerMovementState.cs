@@ -128,7 +128,7 @@ namespace GenshinImpactMovementSystem
 
         protected float GetMovmentSpeed()
         {
-            return movementData.baseSpeed * stateMachine.reusableData.movementSpeedModifier;
+            return movementData.baseSpeed * stateMachine.reusableData.movementSpeedModifier * stateMachine.reusableData.movementOnSlopeSpeedModifier;
         }
 
         protected Vector3 GetPlayerHorizontalVelocity()

@@ -31,6 +31,15 @@ namespace GenshinImpactMovementSystem
 
             if (Physics.Raycast(downwardsRayFromCapsuleCenter, out RaycastHit hit, slopeData.floatRayDistance, stateMachine.player.layerData.groundLayer, QueryTriggerInteraction.Ignore))
             {
+                float groundAngle = Vector3.Angle(hit.normal, -downwardsRayFromCapsuleCenter.direction);
+
+                float slopeSpeedModifier = SetSlopeSpeedModifierOnAngle(groundAngle);
+
+                if (slopeSpeedModifier == 0f)
+                {
+                    return;
+                }
+
                 float distanceToFloatingPoint = stateMachine.player.colliderUtility.capsuleColliderData.colliderCenterInLocalSpace.y * stateMachine.player.transform.localScale.y - hit.distance;
                 if (distanceToFloatingPoint == 0f)
                 {
@@ -43,6 +52,14 @@ namespace GenshinImpactMovementSystem
 
                 stateMachine.player.rb.AddForce(liftForce, ForceMode.VelocityChange);
             }
+        }
+
+        private float SetSlopeSpeedModifierOnAngle(float angle)
+        {
+            float slopeSpeedModifier = movementData.SlopeSpeedAngles.Evaluate(angle);
+            stateMachine.reusableData.movementOnSlopeSpeedModifier = slopeSpeedModifier;
+
+            return slopeSpeedModifier;
         }
         #endregion
 
