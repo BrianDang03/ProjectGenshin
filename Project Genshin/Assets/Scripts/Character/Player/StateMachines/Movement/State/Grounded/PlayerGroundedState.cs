@@ -68,12 +68,14 @@ namespace GenshinImpactMovementSystem
         {
             base.AddInputActionCallback();
             stateMachine.player.input.playerActions.Movement.canceled += OnMovementCanceled;
+            stateMachine.player.input.playerActions.Dash.started += OnDashStarted;
         }
 
         protected override void RemoveInputActionsCallback()
         {
             base.RemoveInputActionsCallback();
             stateMachine.player.input.playerActions.Movement.canceled -= OnMovementCanceled;
+            stateMachine.player.input.playerActions.Dash.started -= OnDashStarted;
         }
 
         protected virtual void OnMove()
@@ -92,6 +94,11 @@ namespace GenshinImpactMovementSystem
         protected virtual void OnMovementCanceled(InputAction.CallbackContext obj)
         {
             stateMachine.ChangeState(stateMachine.idlingState);
+        }
+
+        protected virtual void OnDashStarted(InputAction.CallbackContext obj)
+        {
+            stateMachine.ChangeState(stateMachine.dashingState);
         }
         #endregion
     }

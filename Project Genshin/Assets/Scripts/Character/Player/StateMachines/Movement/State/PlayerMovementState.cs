@@ -205,6 +205,21 @@ namespace GenshinImpactMovementSystem
         {
             stateMachine.reusableData.shouldWalk = !stateMachine.reusableData.shouldWalk;
         }
+
+        public virtual void OnAnimationEnterEvent()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public virtual void OnAnimationExitEvent()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void OnAnimationTransitionEvent()
+        {
+            throw new System.NotImplementedException();
+        }
         #endregion
     }
 }
